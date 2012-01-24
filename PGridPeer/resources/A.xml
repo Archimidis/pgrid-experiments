@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RoutingTable>
+	<localpeer>
+		<address>wn010.grid.tuc.gr</address>
+		<port>3000</port>
+		<path>000</path>
+		<timestamp>0</timestamp>
+		<uuid>5f14e27d-7b26-49a1-aa39-489c8bd7567a</uuid>
+	</localpeer>
+
+	<host level="0">
+		<address>wn013.grid.tuc.gr</address>
+		<port>3000</port>
+		<path>1</path>
+		<timestamp>0</timestamp>
+		<uuid>4e57e9bc-3e98-4f83-be07-a33392ecb29e</uuid>
+	</host>
+
+	<host level="1">
+		<address>wn012.grid.tuc.gr</address>
+		<port>3000</port>
+		<path>01</path>
+		<timestamp>0</timestamp>
+		<uuid>24b22116-c98e-4532-a774-470c91c33ea2</uuid>
+	</host>
+
+	<host level="2">
+		<address>wn011.grid.tuc.gr</address>
+		<port>3000</port>
+		<path>001</path>
+		<timestamp>0</timestamp>
+		<uuid>e9dcad97-96b5-4e1b-bd8a-5d2dfd7c99f7</uuid>
+	</host>
+
+</RoutingTable>
