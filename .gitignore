@@ -9,8 +9,8 @@ out/
 *.ipr
 *.iws
 nbproject/private/
-/build/
-/dist/
+build/
+dist/
 nbproject/private/
 coverage/*
 pgrid.log
