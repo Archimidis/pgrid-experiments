@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RoutingTable>
+    <localpeer>
+        <address>localhost</address>
+        <port>5000</port>
+        <path>1</path>
+        <timestamp>0</timestamp>
+        <uuid>12345678-1234-1234-1234-123456789012</uuid>
+    </localpeer>
+
+    <host level="0">
+        <address>localhost</address>
+        <port>4000</port>
+        <path>01</path>
+        <timestamp>0</timestamp>
+        <uuid>4e57e9bc-3e98-4f83-be07-a33392ecb29e</uuid>
+    </host>
+    <host level="0">
+        <address>localhost</address>
+        <port>3000</port>
+        <path>00</path>
+        <timestamp>0</timestamp>
+        <uuid>5f14e27d-7b26-49a1-aa39-489c8bd7567a</uuid>
+    </host>
+</RoutingTable>

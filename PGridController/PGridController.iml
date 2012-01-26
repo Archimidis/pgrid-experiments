@@ -8,10 +8,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="guice-3" level="application" />
-    <orderEntry type="library" name="logback-core-1.0.0" level="application" />
     <orderEntry type="library" name="slf4j" level="application" />
     <orderEntry type="library" name="pgrid" level="application" />
+    <orderEntry type="library" name="logback-core-1.0.0" level="application" />
+    <orderEntry type="library" name="guice-3" level="application" />
   </component>
 </module>
 

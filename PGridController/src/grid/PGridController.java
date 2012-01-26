@@ -3,20 +3,14 @@ package grid;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pgrid.entity.EntityFactory;
 import pgrid.entity.EntityModule;
 import pgrid.entity.Host;
 import pgrid.entity.routingtable.RoutingTable;
-import pgrid.process.ControlProcess;
 import pgrid.process.ProcessModule;
+import pgrid.process.control.ControlProcess;
 import pgrid.process.initialization.SystemInitializationProcess;
 import pgrid.service.LocalPeerContext;
 import pgrid.service.ServiceModule;
@@ -28,12 +22,18 @@ import pgrid.service.simulation.Simulation;
 import pgrid.service.simulation.internal.XMLPersistencyService;
 import pgrid.service.simulation.spi.PersistencyDelegate;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- *
  * @author Vourlakis Nikolas
  */
 public class PGridController {
-private static Map<String, Host> network_ = new HashMap<String, Host>();
+    private static Map<String, Host> network_ = new HashMap<String, Host>();
     private static final String PROMPT = "pgrid> ";
 
     public static RoutingTable load(String file) throws PersistencyException, FileNotFoundException {
@@ -87,7 +87,6 @@ private static Map<String, Host> network_ = new HashMap<String, Host>();
             System.exit(2);
         }
         initProcess.startServer();
-
 
 
 //        try {

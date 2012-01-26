@@ -28,7 +28,9 @@ import pgrid.entity.EntityModule;
 import pgrid.entity.Host;
 import pgrid.entity.routingtable.RoutingTable;
 import pgrid.process.ProcessModule;
+import pgrid.process.annotations.Scheduled;
 import pgrid.process.initialization.SystemInitializationProcess;
+import pgrid.process.meeting.PeerMeetingProcess;
 import pgrid.service.LocalPeerContext;
 import pgrid.service.ServiceModule;
 import pgrid.service.ServiceRegistration;
@@ -41,6 +43,9 @@ import pgrid.service.simulation.spi.PersistencyDelegate;
 
 import java.io.FileNotFoundException;
 import java.net.UnknownHostException;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A peer that initializes the services needed for simulation and then it waits
@@ -115,5 +120,11 @@ public class GridPeer {
 
         initProcess.startServer();
         // Waiting orders from the controller!
+
+        PeerMeetingProcess meeting = injector.getProvider(Key.get(PeerMeetingProcess.class, Scheduled.class)).get();
+        Timer timer = new Timer();
+        Random r = new Random(System.currentTimeMillis());
+        int period = (r.nextInt(10) + 5) * 1000;
+        timer.schedule((TimerTask) meeting, 5000, period);
     }
 }
