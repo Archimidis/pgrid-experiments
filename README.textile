@@ -1,7 +1,5 @@
 h1. Middleware for Fault Tolerant PGrid Networks
 
-h2. General
-
 P-Grid is a self-organizing structured peer-to-peer system, which can
 accommodate arbitrary key distributions, still providing storage load-balancing
 and efficient search by using randomized routing. This project is an
@@ -10,7 +8,7 @@ to add a fault-tolerant protocol. The implementation is based on SOA
 principles.
 This project is part of my dissertation.
 
-h2. Experiment project
+h2. Experiment Project
 
 The files in pgrid-experiments are meant to be used for the experiments needed 
 to prove the fault-tolerance protocol. The experiments will be conducted on the 
@@ -23,15 +21,38 @@ h3. Libraries in use
 * slf4j 1.6.4
 * pgrid (obviously)
 
-h3. PGridPeer
+h3. PGridPeer Project
 
 The PGridPeer project implements the code that a simple peer will run when it starts 
 its life in a node on the grid system of TUC. In constant time periods it will run a 
 peer meeting process selecting randomly one of its neighbours.
 
-h3. PGridController
+h3. PGridController Project
 
 The PGridController project implements the controller of the pgrid system. Its 
 capabilities are killing peers, getting information about the network and terminating 
 the experiment by shutting down every peer including himself.
+
+h1. License
+
+<pre>
+
+This software is licensed under the GPL version 3 license, quoted below.
+
+Copyright 2009-2011 Shay Banon and ElasticSearch <http://www.elasticsearch.org>
+
+This program is free software: you can redistribute it and/or modify it under 
+the terms of the GNU General Public License as published by 
+the Free Software Foundation, either version 3 of the License, or 
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License 
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+</pre>
 
