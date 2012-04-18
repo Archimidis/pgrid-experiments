@@ -16,12 +16,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package grid;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pgrid.entity.EntityFactory;
@@ -41,17 +46,11 @@ import pgrid.service.simulation.Simulation;
 import pgrid.service.simulation.internal.XMLPersistencyService;
 import pgrid.service.simulation.spi.PersistencyDelegate;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author Vourlakis Nikolas
  */
 public class PGridController {
+
     private static Map<String, Host> network_ = new HashMap<String, Host>();
     private static final String PROMPT = "pgrid> ";
 
@@ -65,13 +64,9 @@ public class PGridController {
     // arg[0] -> xml file where the controller's routing table will be loaded from.
     // arg[1] -> network file with all the hosts in the network.
     public static void main(String[] args) throws IOException {
-//        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-//        StatusPrinter.print(lc);
         Logger logger_ = LoggerFactory.getLogger(PGridController.class);
         logger_.info("Initializing Controller");
-//        args = new String[]{
-//                "experiments/Topology1/controller.xml",
-//                "experiments/Topology1/network"};
+        
         if (args.length != 2) {
             logger_.error("No file given containing the hots of the network.");
             System.exit(1);
@@ -97,9 +92,9 @@ public class PGridController {
         try {
             //initProcess.load(args[0]);
             ServiceRegistration[] registrations = {
-                    injector.getInstance(Key.get(ServiceRegistration.class, Exchange.class)),
-                    injector.getInstance(Key.get(ServiceRegistration.class, Repair.class)),
-                    injector.getInstance(Key.get(ServiceRegistration.class, Simulation.class))};
+                injector.getInstance(Key.get(ServiceRegistration.class, Exchange.class)),
+                injector.getInstance(Key.get(ServiceRegistration.class, Repair.class)),
+                injector.getInstance(Key.get(ServiceRegistration.class, Simulation.class))};
             initProcess.serviceRegistration(registrations);
         } catch (Exception e) {
             System.out.println("Error during service registration. " + e.getMessage());
@@ -118,15 +113,15 @@ public class PGridController {
         control.loadNetworkFile(args[1], injector.getInstance(EntityFactory.class));
 //
         System.out.println();
-        System.out.println("PGrid  Copyright (C) 2012  Vourlakis Nikolas\n" +
-                "This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n" +
-                "This is free software, and you are welcome to redistribute it\n" +
-                "under certain conditions; type `show c' for details.");
+        System.out.println("PGrid  Copyright (C) 2012  Vourlakis Nikolas\n"
+                + "This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n"
+                + "This is free software, and you are welcome to redistribute it\n"
+                + "under certain conditions; type `show c' for details.");
         System.out.println();
 
-        System.out.println("Controller runs on " +
-                context.getLocalRT().getLocalhost() + ":" +
-                context.getLocalRT().getLocalhost().getPort());
+        System.out.println("Controller runs on "
+                + context.getLocalRT().getLocalhost() + ":"
+                + context.getLocalRT().getLocalhost().getPort());
 
         BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
         String line;
