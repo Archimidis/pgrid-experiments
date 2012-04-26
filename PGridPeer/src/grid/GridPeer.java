@@ -112,7 +112,7 @@ public class GridPeer {
 
         logger_.debug("Localhost");
         logger_.debug("[{}] {}:{} - '{}'", new Object[]{localhost.getHostPath(), localhost, localhost.getPort(), localhost.getUUID()});
-        logger_.debug("Routing Table");
+        logger_.debug("Routing Table ({} unique hosts and {} levels)", context.getLocalRT().uniqueHostsNumber(), context.getLocalRT().levelNumber());
         for (Host host : context.getLocalRT().getAllHosts()) {
             logger_.debug("[{}] {}:{} - '{}'", new Object[]{host.getHostPath(), host, host.getPort(), host.getUUID()});
         }

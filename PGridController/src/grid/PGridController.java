@@ -68,7 +68,7 @@ public class PGridController {
         logger_.info("Initializing Controller");
         
         if (args.length != 2) {
-            logger_.error("No file given containing the hots of the network.");
+            logger_.error("No file given containing the hosts of the network.");
             System.exit(1);
         }
 
@@ -102,16 +102,9 @@ public class PGridController {
         }
         initProcess.startServer();
 
-
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
         ControlProcess control = injector.getInstance(ControlProcess.class);
         control.loadNetworkFile(args[1], injector.getInstance(EntityFactory.class));
-//
+
         System.out.println();
         System.out.println("PGrid  Copyright (C) 2012  Vourlakis Nikolas\n"
                 + "This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n"
