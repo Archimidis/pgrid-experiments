@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This file is part of the pgrid project.
+  ~
+  ~ Copyright (c) 2012. Vourlakis Nikolas. All rights reserved.
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<RoutingTable>
+    <localpeer>
+        <address>localhost</address>
+        <port>6000</port>
+        <path>1</path>
+        <timestamp>0</timestamp>
+        <uuid>98765432-4321-4321-4321-111110002222</uuid>
+    </localpeer>
+
+    <host level="0">
+        <address>localhost</address>
+        <port>5000</port>
+        <path>01</path>
+        <timestamp>0</timestamp>
+        <uuid>12345678-1234-1234-1234-123456789012</uuid>
+    </host>
+	
+    <host level="0">
+        <address>localhost</address>
+        <port>4000</port>
+        <path>001</path>
+        <timestamp>0</timestamp>
+        <uuid>98765432-4321-4321-4321-9876543210aa</uuid>
+    </host>
+
+    <host level="0">
+        <address>localhost</address>
+        <port>3000</port>
+        <path>000</path>
+        <timestamp>0</timestamp>
+        <uuid>5f14e27d-7b26-49a1-aa39-489c8bd7567a</uuid>
+    </host>
+</RoutingTable>
