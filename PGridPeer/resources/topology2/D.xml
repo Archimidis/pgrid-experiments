@@ -34,15 +34,15 @@
         <timestamp>0</timestamp>
         <uuid>12345678-1234-1234-1234-123456789012</uuid>
     </host>
-	
-    <host level="0">
-        <address>localhost</address>
-        <port>4000</port>
-        <path>001</path>
-        <timestamp>0</timestamp>
-        <uuid>98765432-4321-4321-4321-9876543210aa</uuid>
-    </host>
-
+    <!--
+        <host level="0">
+            <address>localhost</address>
+            <port>4000</port>
+            <path>001</path>
+            <timestamp>0</timestamp>
+            <uuid>98765432-4321-4321-4321-9876543210aa</uuid>
+        </host>
+    -->
     <host level="0">
         <address>localhost</address>
         <port>3000</port>

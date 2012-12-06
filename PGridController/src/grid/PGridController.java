@@ -21,12 +21,6 @@ package grid;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pgrid.entity.EntityFactory;
@@ -35,16 +29,24 @@ import pgrid.entity.Host;
 import pgrid.entity.routingtable.RoutingTable;
 import pgrid.process.ProcessModule;
 import pgrid.process.control.ControlProcess;
-import pgrid.process.initialization.SystemInitializationProcess;
 import pgrid.service.LocalPeerContext;
 import pgrid.service.ServiceModule;
 import pgrid.service.ServiceRegistration;
 import pgrid.service.exchange.Exchange;
+import pgrid.service.initialization.SystemInitializationService;
+import pgrid.service.initialization.internal.DefaultInitializationService;
 import pgrid.service.repair.Repair;
 import pgrid.service.simulation.PersistencyException;
 import pgrid.service.simulation.Simulation;
 import pgrid.service.simulation.internal.XMLPersistencyService;
 import pgrid.service.simulation.spi.PersistencyDelegate;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Vourlakis Nikolas
@@ -66,7 +68,7 @@ public class PGridController {
     public static void main(String[] args) throws IOException {
         Logger logger_ = LoggerFactory.getLogger(PGridController.class);
         logger_.info("Initializing Controller");
-        
+
         if (args.length != 2) {
             logger_.error("No file given containing the hosts of the network.");
             System.exit(1);
@@ -87,20 +89,20 @@ public class PGridController {
         LocalPeerContext context = injector.getInstance(LocalPeerContext.class);
         context.setRoutingTable(rt);
 
-        SystemInitializationProcess initProcess =
-                injector.getInstance(SystemInitializationProcess.class);
+        SystemInitializationService initService =
+                injector.getInstance(DefaultInitializationService.class);
         try {
-            //initProcess.load(args[0]);
+            //initService.load(args[0]);
             ServiceRegistration[] registrations = {
-                injector.getInstance(Key.get(ServiceRegistration.class, Exchange.class)),
-                injector.getInstance(Key.get(ServiceRegistration.class, Repair.class)),
-                injector.getInstance(Key.get(ServiceRegistration.class, Simulation.class))};
-            initProcess.serviceRegistration(registrations);
+                    injector.getInstance(Key.get(ServiceRegistration.class, Exchange.class)),
+                    injector.getInstance(Key.get(ServiceRegistration.class, Repair.class)),
+                    injector.getInstance(Key.get(ServiceRegistration.class, Simulation.class))};
+            initService.serviceRegistration(registrations);
         } catch (Exception e) {
             System.out.println("Error during service registration. " + e.getMessage());
             System.exit(2);
         }
-        initProcess.startServer();
+        initService.startServer();
 
         ControlProcess control = injector.getInstance(ControlProcess.class);
         control.loadNetworkFile(args[1], injector.getInstance(EntityFactory.class));

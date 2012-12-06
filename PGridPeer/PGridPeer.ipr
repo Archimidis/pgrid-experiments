@@ -81,5 +81,14 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="" />
   </component>
+  <component name="libraryTable">
+    <library name="pgrid">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../ThesisLib/pgrid.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+  </component>
 </project>
 

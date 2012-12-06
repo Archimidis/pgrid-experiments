@@ -34,8 +34,8 @@
         <timestamp>0</timestamp>
         <uuid>5f14e27d-7b26-49a1-aa39-489c8bd7567a</uuid>
     </host>
-	
-	<host level="1">
+
+    <host level="1">
         <address>localhost</address>
         <port>6000</port>
         <path>11</path>

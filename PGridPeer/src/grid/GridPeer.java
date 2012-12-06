@@ -22,11 +22,6 @@ package grid;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
-import java.io.FileNotFoundException;
-import java.net.UnknownHostException;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pgrid.entity.EntityModule;
@@ -34,17 +29,23 @@ import pgrid.entity.Host;
 import pgrid.entity.routingtable.RoutingTable;
 import pgrid.process.ProcessModule;
 import pgrid.process.annotations.Scheduled;
-import pgrid.process.initialization.SystemInitializationProcess;
 import pgrid.process.meeting.PeerMeetingProcess;
 import pgrid.service.LocalPeerContext;
 import pgrid.service.ServiceModule;
 import pgrid.service.ServiceRegistration;
 import pgrid.service.exchange.Exchange;
+import pgrid.service.initialization.SystemInitializationService;
 import pgrid.service.repair.Repair;
 import pgrid.service.simulation.PersistencyException;
 import pgrid.service.simulation.Simulation;
 import pgrid.service.simulation.internal.XMLPersistencyService;
 import pgrid.service.simulation.spi.PersistencyDelegate;
+
+import java.io.FileNotFoundException;
+import java.net.UnknownHostException;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A peer that initializes the services needed for simulation and then it waits
@@ -92,8 +93,8 @@ public class GridPeer {
         LocalPeerContext context = injector.getInstance(LocalPeerContext.class);
         context.setRoutingTable(rt);
 
-        SystemInitializationProcess initProcess =
-                injector.getInstance(SystemInitializationProcess.class);
+        SystemInitializationService initProcess =
+                injector.getInstance(SystemInitializationService.class);
 
         try {
             initProcess.load(args[0]);

@@ -30,7 +30,7 @@
     </appender>
 
     <logger name="pgrid.service.exchange" level="ERROR"/>
-    
+
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </root>

@@ -35,14 +35,14 @@
         <uuid>98765432-4321-4321-4321-111110002222</uuid>
     </host>
 
-	<host level="1">
+    <host level="1">
         <address>localhost</address>
         <port>5000</port>
         <path>01</path>
         <timestamp>0</timestamp>
         <uuid>12345678-1234-1234-1234-123456789012</uuid>
     </host>
-	
+
     <host level="2">
         <address>localhost</address>
         <port>3000</port>

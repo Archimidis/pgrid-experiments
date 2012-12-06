@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RoutingTable>
-	<localpeer>
-		<address>localhost</address>
-		<port>1111</port>
-		<path> </path>
-		<timestamp>0</timestamp>
-		<uuid>98765412-4567-7894-3214-78945123567a</uuid>
-	</localpeer>
+    <localpeer>
+        <address>localhost</address>
+        <port>1111</port>
+        <path></path>
+        <timestamp>0</timestamp>
+        <uuid>98765412-4567-7894-3214-78945123567a</uuid>
+    </localpeer>
 
 </RoutingTable>
