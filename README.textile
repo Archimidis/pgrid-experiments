@@ -39,10 +39,10 @@ h1. License
 
 This software is licensed under the GPL version 3 license, quoted below.
 
-Copyright 2009-2011 Shay Banon and ElasticSearch <http://www.elasticsearch.org>
+Copyright 2011-2013 Nikolas Vourlakis
 
-This program is free software: you can redistribute it and/or modify it under 
-the terms of the GNU General Public License as published by 
+This program is free software: you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published by 
 the Free Software Foundation, either version 3 of the License, or 
 (at your option) any later version.
 
